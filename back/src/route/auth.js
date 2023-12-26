@@ -2,16 +2,30 @@
 const express = require('express')
 const router = express.Router()
 
+const { User } = require('../class/user')
+
 // Підключіть файли роутів
-router.get('/', function (req, res) {
-  res.render('index', {
-    name: 'index',
+router.get('/signup', function (req, res) {
+  return res.render('signup', {
+    name: 'signup',
 
     component: [],
 
-    title: 'Home page',
+    title: 'Signup page',
 
-    data: {},
+    data: {
+      role: [
+        { value: User.USER_ROLE.USER, text: 'Користувач' },
+        {
+          value: User.USER_ROLE.ADMIN,
+          text: 'Адміністратор',
+        },
+        {
+          value: User.USER_ROLE.DEVELOPER,
+          text: 'Розробник',
+        },
+      ],
+    },
   })
 })
 // const test = require('./test')
@@ -21,10 +35,6 @@ const auth = require('./auth')
 router.use('/', auth)
 // router.use('/', test)
 // Використовуйте інші файли роутів, якщо є
-
-router.get('/', (req, res) => {
-  res.status(200).json('Hello World')
-})
 
 // Експортуємо глобальний роутер
 module.exports = router
