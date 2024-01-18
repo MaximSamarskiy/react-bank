@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./index.css";
 
@@ -10,8 +11,13 @@ function WellcomePage() {
         <span className="description">Welcome to Bank App</span>
       </div>
       <div className="box-buttons">
-        <button>Sing Up</button>
-        <button>Sing In</button>
+        <Link to="/signup" className="signup">
+          Sign Up
+        </Link>
+
+        <Link to="/signin" className="signin">
+          Sign In
+        </Link>
       </div>
     </div>
   );

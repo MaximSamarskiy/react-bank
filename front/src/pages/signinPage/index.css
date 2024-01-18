@@ -1,4 +1,4 @@
-.signup-page {
+.signin-page {
   display: grid;
 
   justify-content: space-evenly;
@@ -11,7 +11,7 @@
   background-color: white;
   border-radius: 20px;
 }
-.signup_header {
+.signin_header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +31,7 @@
   align-items: center;
 }
 .description {
-  color: var(--Grey-text, #757477);
+  color: var(--Grey-text, #5a5a5c);
   text-align: center;
   font-family: Jost;
   font-size: 14px;
@@ -58,7 +58,7 @@
   align-self: stretch;
 
   border-radius: 12px;
-  border: 1px solid var(--Grey-Border, #b6b5b8);
+  border: 1px solid var(--Grey-Border, #a2a1a3);
 }
 .email {
   text-align: start;
