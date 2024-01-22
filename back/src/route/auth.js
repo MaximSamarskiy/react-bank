@@ -7,6 +7,7 @@ const { User } = require('../class/user')
 User.create({
   email: 'test@mail.com',
   password: 123,
+  role,
 })
 
 // // Підключіть файли роутів
