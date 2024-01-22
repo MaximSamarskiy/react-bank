@@ -11,6 +11,7 @@ interface IHelpear {
 }
 
 function SignupPage() {
+  <Form></Form>;
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const [isOpenEyes, handleEyes] = useState<boolean>(false);

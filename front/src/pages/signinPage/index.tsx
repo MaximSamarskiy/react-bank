@@ -56,11 +56,13 @@ function SignInPage() {
               }}
             />
           </div>
+          {error && <span className="error-valid">{error}</span>}
         </div>
       </div>
       <div className="wrapper_signup">
         <span>Forgot your password? </span> <Link to="/"> Restore</Link>
       </div>
+
       <div className="box-buttons">
         <button
           onClick={() => {
