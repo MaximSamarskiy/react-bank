@@ -11,10 +11,10 @@ interface IHelpear {
 }
 
 function SignupPage() {
-  <Form></Form>;
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const [isOpenEyes, handleEyes] = useState<boolean>(false);
+  const [isOpenEyesError, setOpenEyesError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -39,13 +39,27 @@ function SignupPage() {
         <div className="box-password">
           <span> Password</span>
           <div className="box-input">
-            <img
-              src={
-                !isOpenEyes ? IconsImgs.EyeBlackClose : IconsImgs.EyeBlackOpen
-              }
-              alt="EyeBlackOpen"
-              onClick={() => handleEyes(!isOpenEyes)}
-            />
+            {!error && (
+              <img
+                src={
+                  !isOpenEyes ? IconsImgs.EyeBlackClose : IconsImgs.EyeBlackOpen
+                }
+                alt="EyeBlackOpen"
+                onClick={() => handleEyes(!isOpenEyes)}
+              />
+            )}
+            {error && (
+              <img
+                src={
+                  !isOpenEyesError
+                    ? IconsImgs.EyeRedClose
+                    : IconsImgs.EyeRedOpen
+                }
+                alt="EyeRedClose"
+                onClick={() => setOpenEyesError(!isOpenEyesError)}
+              />
+            )}
+
             <input
               type={!isOpenEyes ? "password" : ""}
               className={
