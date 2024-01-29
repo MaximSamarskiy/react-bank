@@ -1,19 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ArrowImg from "../../assets/icons/arrow-back.svg";
 import "./index.css";
-import { feachSignUp } from "../../api";
+import { feachSignUpPage } from "../../api";
 import React, { useState } from "react";
 import { IconsImgs } from "../../assets/icons";
 
-interface IHelpear {
-  text: string;
-  setText: any;
-}
-
 function SignInPage() {
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
-
   const [isOpenEyes, handleEyes] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -68,7 +60,7 @@ function SignInPage() {
           onClick={() => {
             if (email && password) {
               setError("");
-              feachSignUp({ email, password });
+              feachSignUpPage({ email, password });
             } else {
               setError("Sorry, the password is too simple");
             }

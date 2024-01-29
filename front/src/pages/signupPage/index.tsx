@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ArrowImg from "../../assets/icons/arrow-back.svg";
 import "./index.css";
 import { IconsImgs } from "../../assets/icons";
-import { feachSignUp } from "../../api";
-
-interface IHelpear {
-  text: string;
-  setText: any;
-}
+import { feachSignUpPage } from "../../api";
 
 function SignupPage() {
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
   const [isOpenEyes, handleEyes] = useState<boolean>(false);
   const [isOpenEyesError, setOpenEyesError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
@@ -36,6 +29,7 @@ function SignupPage() {
             }}
           />
         </div>
+
         <div className="box-password">
           <span> Password</span>
           <div className="box-input">
@@ -75,13 +69,14 @@ function SignupPage() {
       <div className="wrapper_signup">
         <span>Already have an account? </span> <Link to="/signin">Sign In</Link>
       </div>
+
       {error && <span className="error-valid">{error}</span>}
       <div className="box-buttons">
         <button
           onClick={() => {
             if (email && password) {
               setError("");
-              feachSignUp({ email, password });
+              feachSignUpPage({ email, password });
             } else {
               setError("Заполните все поля !!!!");
             }
@@ -89,6 +84,12 @@ function SignupPage() {
         >
           Continue
         </button>
+      </div>
+      <div className="box-error">
+        <img src={IconsImgs.Danger} alt="danger" />
+        <h2 className="desription_error">
+          A user with the same name is already exist
+        </h2>
       </div>
     </div>
   );
